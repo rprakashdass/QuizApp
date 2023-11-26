@@ -8,6 +8,6 @@ class QuizListView(ListView):
     model = Quiz
     template_name = 'quizes/main.html'
 
-def Quiz_view(request, pk):
-    quiz = Quiz.objects.get(pk=pk)
+def Quiz_view(request, id):
+    quiz = Quiz.objects.get(pk=id)
     return render(request, 'quizes/quizes.html', {'obj':quiz})
