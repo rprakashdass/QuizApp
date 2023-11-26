@@ -3,5 +3,25 @@
  {{obj.name}}
  {% endblock title %}
 {% block content %}
-<h2 style=".txt-primary">{{obj.name}}</h2>
+<h2 class="p-5 txt-primary">{{obj.topic}}</h2>
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li class="page-item"><a class="page-link" onclick('QuizSwipper')>1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+</nav>
+
 {% endblock content %}
+

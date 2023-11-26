@@ -1,4 +1,10 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block scripts %}
+  <script src="{% static "quizes/main.js" %}" defer></script>
+  {% comment %} defer - runs after parsing html execution {% endcomment %}
+{% endblock scripts %}
 
 
 {% block title %}
@@ -7,28 +13,21 @@
 
 {% block content %}
 
-{% comment %} {% for obj in object_list %} {% endcomment %}
-<div id="carouselExample" class="carousel slide">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="..." class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="..." class="d-block w-100" alt="...">
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+<header style="padding:32px">
+  <h1>Quiz app</h1>
+</header>
+
+<div class="container text-center text-info">
+<div class="row row-cols-4">
+{% for obj in object_list %}
+  <div class="col bg-success me-2 mb-3 p-5 quizes"
+   id="{{obj.pk}}"
+   onclick="StartQuiz()"
+   >
+    <h2>{{obj.name}}<h2>
   </div>
-{% comment %} {% endfor %} {% endcomment %}
+{% endfor %}
+</div>
+</div>
 
 {% endblock content %}
