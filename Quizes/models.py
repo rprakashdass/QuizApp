@@ -1,5 +1,5 @@
 from django.db import models
-
+import random
 DIFFICULT_CHOICES = (
     ('easy','easy'),
     ('medium','medium'),
@@ -18,7 +18,9 @@ class Quiz(models.Model):
         return f"{self.name} - {self.topic}"
     
     def get_questions(self):
-        return self.question_set.all()[:self.no_of_questions]
+        questions = list(self.question_set.all())
+        random.shuffle(questions)
+        return questions[:self.no_of_questions]
     
     class Meta:
         verbose_name_plural = 'Quizes'

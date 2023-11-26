@@ -1,27 +1,35 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block scripts %}
+  <script src="{% static "quizes/quiz.js" %}" defer></script>
+{% endblock scripts %}
+
 {% block title %}
  {{obj.name}}
  {% endblock title %}
+
 {% block content %}
+
 <h2 class="p-5 txt-primary">{{obj.topic}}</h2>
 
-<nav aria-label="Page navigation example">
-    <ul class="pagination">
-      <li class="page-item">
-        <a class="page-link" href="#" aria-label="Previous">
-          <span aria-hidden="true">&laquo;</span>
-        </a>
-      </li>
-      <li class="page-item"><a class="page-link" onclick('QuizSwipper')>1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item">
-        <a class="page-link" href="#" aria-label="Next">
-          <span aria-hidden="true">&raquo;</span>
-        </a>
-      </li>
-    </ul>
-</nav>
+<form id="answer-space" class="mt-3 p-5">
+  {% csrf_token %}
+  <div id="answer-box"></div>
+  <button type="submit" class="btn btn-success">Submit</button>
+</form>
+
 
 {% endblock content %}
 
+
+{% comment %}
+  <div class="pagination">
+    <li class="page-item disabled">
+      <a class="page-link">Previous</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" id="">Next</a>
+    </li>
+  </div>
+{% endcomment %}
