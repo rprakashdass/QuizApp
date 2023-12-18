@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Website{% endblock title %}</title>
+    <!-- Add your global CSS styles or links here -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<header>
+    <!-- Add your site header content here -->
+    <h1>My Quiz App</h1>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <!-- Add other global navigation links here -->
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <!-- This is where the content from child templates will be inserted -->
+    {% block content %}{% endblock content %}
+</main>
+
+<footer>
+    <!-- Add your site footer content here -->
+    <p>&copy; 2023 My Quiz App</p>
+</footer>
+
+<!-- Add your global JavaScript scripts or links here -->
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

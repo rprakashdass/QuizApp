@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+  Quiz List
+{% endblock title %}
+
+{% block content %}
+  <h2 class="p-5 txt-primary">Quiz List</h2>
+
+  <ul>
+    {% for quiz in quizzes %}
+      <li>
+        <a href="{% url 'quizes:quiz-detail' quiz.id %}">{{ quiz.name }} - {{ quiz.topic }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+
+{% endblock content %}
+
+{% block scripts %}
+  <script src="{% static "quizes/quiz.js" %}" defer></script>
+{% endblock scripts %}
